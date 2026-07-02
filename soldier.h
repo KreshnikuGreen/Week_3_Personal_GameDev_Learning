@@ -4,9 +4,8 @@ class Soldier{
     private:
         int hp;
         int Max_Hp;
-        bool alive;
         void Clamp_Health(){
-            if(hp < Max_Hp){
+            if(hp < 0){
                 hp = 0;
             }
             if(hp > Max_Hp){
@@ -15,6 +14,7 @@ class Soldier{
         }
  
     public:
+        Soldier(): hp(100), Max_Hp(100){}
         Soldier(int Mx_H) : hp(Mx_H), Max_Hp(Mx_H){}
 
         int Take_Damage(int amount);
