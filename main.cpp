@@ -35,23 +35,21 @@ int main(){
                 break;
             case 2:
                 for(int i = 0; i < count; i++){
-                    if(s[i].Get_Hp() < s[i].Get_Hp()){
-                        s[i].heal(50);
-                    }
+                    s[i].heal(50);
                 }
                 break;
             case 3:{
-                        int Dead_Count = 0;
-                        for(int i = 0; i < count; i++){
-                            std::cout << "Soldier: " << i << " HP: " << s[i].Get_Hp() << " Alive: " << s[i].Is_Alive() << "\n";
-                            if(s[i].Is_Alive() == false){
-                                Dead_Count += 1;
-                            }
-                            if(Dead_Count == count){
-                                std::cout << "SQUAD WIPED\n";
-                                return 0;
-                            }
-                        }
+                       int Dead_Count = 0;
+                       for(int i = 0; i < count; i++){
+                           std::cout << "Soldier: " << i << " HP: " << s[i].Get_Hp() << " Alive: " << s[i].Is_Alive() << "\n";
+                           if(!s[i].Is_Alive()){
+                               Dead_Count++;
+                           }
+                       }
+                       if(Dead_Count == count){
+                           std::cout << "SQUAD WIPED\n";
+                           return 0;
+                       }
                    }
                 break;
             case 4:
